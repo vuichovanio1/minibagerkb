@@ -68,4 +68,5 @@
 - [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): Изкопи в района на Драгоман — оглед при каменист терен.
 - [Годеч](https://minibagerkb.eu/rayoni/godech.html): Минибагер услуги в Годеч — оглед при труден терен.
 - [Sitemap](https://minibagerkb.eu/sitemap.xml): Пълен списък на индексираните URL адреси.
-- [Разработка на сайта](https://moverstudio.online/): Уеб изработка — moverstudio.online.
+- [Пътна помощ Костинброд](https://patna-pomosht-kostinbrod.bg/): Партньор — репатрак и пътна помощ 24/7.
+- [Разработка на сайта](https://moverstudio.online/): Партньор / уеб изработка — moverstudio.online.
