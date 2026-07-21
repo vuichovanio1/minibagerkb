@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://minibagerkb.eu/sitemap.xml
+
+# AI / LLM context indexes
+# https://minibagerkb.eu/llms.txt
+# https://minibagerkb.eu/llms-full.txt
