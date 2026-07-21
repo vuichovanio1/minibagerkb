@@ -11,6 +11,7 @@ Updated: 2026-07-21
 - Brand: Минибагер Костинброд (Mini excavator Kostinbrod)
 - Legal entity: Транспортер Иван Иванов ЕООД
 - Phone: +359 877 845 569 (0877 845 569)
+- Viber: same number — viber://chat?number=%2B359877845569
 - Address: ул. Бяло море 16, Костинброд, Bulgaria
 - Domain: minibagerkb.eu
 - Developer credit on site footers: moverstudio.online
