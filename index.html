@@ -22,7 +22,8 @@
   <meta name="geo.region" content="BG-22">
   <meta name="geo.placename" content="Костинброд">
   <meta name="theme-color" content="#121416">
-  <link rel="preload" as="image" type="image/webp" href="assets/img/rippa-r15-eco-profil-720.webp" imagesrcset="assets/img/rippa-r15-eco-profil-720.webp 720w, assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/img/rippa-r15-eco-profil-720.webp" media="(max-width: 899px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/img/rippa-r15-eco-profil-1080.webp" media="(min-width: 900px)" imagesrcset="assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" href="assets/fonts/manrope-cyrillic-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/unbounded-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -378,8 +379,8 @@
   <main>
     <section class="hero" aria-label="Начало">
       <picture>
-        <source type="image/webp" srcset="assets/img/rippa-r15-eco-profil-720.webp 720w, assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" sizes="100vw">
-        <img class="hero-photo" src="assets/img/rippa-r15-eco-profil-720.webp" srcset="assets/img/rippa-r15-eco-profil-720.webp 720w, assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" sizes="100vw" width="1400" height="1050" alt="Rippa R15 Eco минибагер 1.5 тона с гумени вериги — Костинброд" fetchpriority="high" decoding="async">
+        <source type="image/webp" srcset="assets/img/rippa-r15-eco-profil-720.webp 720w, assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" sizes="(max-width: 899px) 100vw, 1400px">
+        <img class="hero-photo" src="assets/img/rippa-r15-eco-profil-720.webp" srcset="assets/img/rippa-r15-eco-profil-720.webp 720w, assets/img/rippa-r15-eco-profil-900.webp 900w, assets/img/rippa-r15-eco-profil-1080.webp 1080w, assets/img/rippa-r15-eco-profil.webp 1600w" sizes="(max-width: 899px) 100vw, 1400px" width="1400" height="1050" alt="Rippa R15 Eco минибагер 1.5 тона с гумени вериги — Костинброд" fetchpriority="high" decoding="sync">
       </picture>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="wrap">

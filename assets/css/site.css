@@ -297,16 +297,11 @@ li { margin-bottom: 0.35em; }
 .hero-photo {
   object-fit: cover;
   object-position: 72% 45%;
-  animation: hero-photo 1.4s var(--ease) both;
-}
-@keyframes hero-photo {
-  from { opacity: 0; transform: scale(1.07); }
-  to { opacity: 1; transform: scale(1); }
+  /* No fade/scale on mobile — opacity:0 + late CSS made the hero feel slow to load */
 }
 @keyframes hero-photo-desk {
-  0% { opacity: 0; transform: scale(1.08); }
-  10% { opacity: 1; }
-  100% { opacity: 1; transform: scale(1); }
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
 }
 @media (min-width: 900px) {
   .hero-photo {
@@ -326,8 +321,13 @@ li { margin-bottom: 0.35em; }
       rgba(255, 255, 255, 0.012) 49px
     );
   pointer-events: none;
-  opacity: 0;
-  animation: fade-soft 1s var(--ease) 0.4s both;
+  opacity: 1;
+}
+@media (min-width: 900px) {
+  .hero-bg::after {
+    opacity: 0;
+    animation: fade-soft 1s var(--ease) 0.4s both;
+  }
 }
 @keyframes fade-soft {
   to { opacity: 1; }
@@ -449,14 +449,16 @@ li { margin-bottom: 0.35em; }
 @media (min-width: 720px) {
   .hero-inner { padding: 7rem 0 4.5rem; }
 }
-.hero-inner > * {
-  animation: copy-in 0.75s var(--ease) both;
+@media (min-width: 900px) {
+  .hero-inner > * {
+    animation: copy-in 0.75s var(--ease) both;
+  }
+  .hero-brand { animation-delay: 0.12s; }
+  .hero h1 { animation-delay: 0.24s; }
+  .hero-lead { animation-delay: 0.36s; }
+  .hero-inner .btn-row { animation-delay: 0.48s; }
+  .hero-meta { animation-delay: 0.6s; }
 }
-.hero-brand { animation-delay: 0.12s; }
-.hero h1 { animation-delay: 0.24s; }
-.hero-lead { animation-delay: 0.36s; }
-.hero-inner .btn-row { animation-delay: 0.48s; }
-.hero-meta { animation-delay: 0.6s; }
 @keyframes copy-in {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
