@@ -1,0 +1,26 @@
+{
+  "name": "Минибагер Костинброд",
+  "short_name": "Минибагер",
+  "description": "Услуги с минибагер Rippa R15 Eco в Костинброд и София-област",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121416",
+  "theme_color": "#121416",
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/assets/img/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
