@@ -25,6 +25,11 @@ ServerSignature Off
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # mail.* → основен домейн (поддомейнът сочи към същия docroot и
+  # иначе сервира целия сайт; пощата по MX/IMAP не се засяга)
+  RewriteCond %{HTTP_HOST} ^mail\.minibagerkb\.eu$ [NC]
+  RewriteRule ^ https://minibagerkb.eu/ [L,R=301]
+
   # www.* -> без www (запазва http/https решението за следващото правило)
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
