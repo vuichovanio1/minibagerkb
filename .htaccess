@@ -1,0 +1,127 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the "ea-php82" package as the default "PHP" programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# =====================================================================
+#  Минибагер Костинброд — статичен сайт (Apache / cPanel)
+# =====================================================================
+
+DirectoryIndex index.html index.php
+Options -Indexes
+ServerSignature Off
+
+<IfModule mod_headers.c>
+  # Не издавай точната PHP версия
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Каноничен адрес: HTTPS + без www
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www.* -> без www (запазва http/https решението за следващото правило)
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # http -> https
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Правилни MIME типове и кодиране
+# ---------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                       .webp
+  AddType image/svg+xml                    .svg
+  AddType font/woff2                       .woff2
+  AddType application/manifest+json        .webmanifest
+  AddType image/x-icon                     .ico
+
+  AddCharset UTF-8 .html .css .js .txt .xml .json .webmanifest .svg
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Компресия
+# ---------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml \
+    image/svg+xml application/manifest+json
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Кеширане
+#  Шрифтове/CSS: 1 година immutable (сменят се с ново име при промяна).
+#  Изображения: 30 дни (по-безопасно при подмяна на снимка).
+#  HTML: без кеш — винаги свежо съдържание.
+# ---------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                   "access plus 1 year"
+  ExpiresByType font/woff2                 "access plus 1 year"
+  ExpiresByType application/javascript     "access plus 1 year"
+  ExpiresByType image/webp                 "access plus 30 days"
+  ExpiresByType image/png                  "access plus 30 days"
+  ExpiresByType image/jpeg                 "access plus 30 days"
+  ExpiresByType image/x-icon               "access plus 30 days"
+  ExpiresByType image/svg+xml              "access plus 30 days"
+  ExpiresByType text/html                  "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|woff2|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|png|jpe?g|ico|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  AI / LLM индекси — чист текст + кратък кеш
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "^llms(-full)?\.txt$">
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Сигурност (заглавия)
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HSTS — включи само след като HTTPS работи навсякъде
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  Забрани достъп до служебни файлове
+# ---------------------------------------------------------------------
+<FilesMatch "(^\.|\.(bak|config|dist|inc|ini|log|sh|sql|zip|py)$|^_headers$|^_redirects$)">
+  Require all denied
+</FilesMatch>
+
+# .htaccess се пази автоматично, но за всеки случай:
+<Files ".htaccess">
+  Require all denied
+</Files>
+
+# ---------------------------------------------------------------------
+#  Бележка: НЕ добавяме hotlink protection нарочно — тя блокираше
+#  заявки за .webp/.woff2 от ботове без реферер (ClaudeBot, скенери).
+# ---------------------------------------------------------------------
