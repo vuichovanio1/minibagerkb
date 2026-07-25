@@ -1,12 +1,12 @@
 # php -- BEGIN cPanel-generated handler, do not edit
-# Set the "ea-php82" package as the default "PHP" programming language.
+# Set the “ea-php82” package as the default “PHP” programming language.
 <IfModule mime_module>
   AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
 
 # =====================================================================
-#  Минибагер Костинброд — статичен сайт (Apache / cPanel)
+#  Минибагер Костинброд — статичен сайт (Apache / LiteSpeed / cPanel)
 # =====================================================================
 
 DirectoryIndex index.html index.php
@@ -14,7 +14,6 @@ Options -Indexes
 ServerSignature Off
 
 <IfModule mod_headers.c>
-  # Не издавай точната PHP версия
   Header always unset X-Powered-By
   Header unset X-Powered-By
 </IfModule>
@@ -25,31 +24,34 @@ ServerSignature Off
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # mail.* → основен домейн (поддомейнът сочи към същия docroot и
-  # иначе сервира целия сайт; пощата по MX/IMAP не се засяга)
+  # mail.* → apex (поддомейнът сочи към същия docroot)
   RewriteCond %{HTTP_HOST} ^mail\.minibagerkb\.eu$ [NC]
   RewriteRule ^ https://minibagerkb.eu/ [L,R=301]
 
-  # www.* -> без www (запазва http/https решението за следващото правило)
+  # www → без www
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-  # http -> https
-  RewriteCond %{HTTPS} off
+  # http → https
+  RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # ---------------------------------------------------------------------
-#  Правилни MIME типове и кодиране
+#  MIME типове
+#  Важно: sitemap ползва text/xml (стандартът на sitemaps.org).
+#  Не пипаме Content-Type с Header set — конфликт с AddCharset чупи GSC.
 # ---------------------------------------------------------------------
 <IfModule mod_mime.c>
-  AddType image/webp                       .webp
-  AddType image/svg+xml                    .svg
-  AddType font/woff2                       .woff2
-  AddType application/manifest+json        .webmanifest
-  AddType image/x-icon                     .ico
+  AddType image/webp                .webp
+  AddType image/svg+xml             .svg
+  AddType font/woff2                .woff2
+  AddType application/manifest+json .webmanifest
+  AddType image/x-icon              .ico
+  AddType text/xml                  .xml
+  AddType text/plain                .txt
 
-  AddCharset UTF-8 .html .css .js .txt .xml .json .webmanifest .svg
+  AddCharset UTF-8 .html .css .js .txt .json .webmanifest .svg
 </IfModule>
 
 # ---------------------------------------------------------------------
@@ -63,21 +65,20 @@ ServerSignature Off
 
 # ---------------------------------------------------------------------
 #  Кеширане
-#  Шрифтове/CSS: 1 година immutable (сменят се с ново име при промяна).
-#  Изображения: 30 дни (по-безопасно при подмяна на снимка).
-#  HTML: без кеш — винаги свежо съдържание.
 # ---------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css                   "access plus 1 year"
-  ExpiresByType font/woff2                 "access plus 1 year"
-  ExpiresByType application/javascript     "access plus 1 year"
-  ExpiresByType image/webp                 "access plus 30 days"
-  ExpiresByType image/png                  "access plus 30 days"
-  ExpiresByType image/jpeg                 "access plus 30 days"
-  ExpiresByType image/x-icon               "access plus 30 days"
-  ExpiresByType image/svg+xml              "access plus 30 days"
-  ExpiresByType text/html                  "access plus 0 seconds"
+  ExpiresByType text/css        "access plus 1 year"
+  ExpiresByType font/woff2      "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp      "access plus 30 days"
+  ExpiresByType image/png       "access plus 30 days"
+  ExpiresByType image/jpeg      "access plus 30 days"
+  ExpiresByType image/x-icon    "access plus 30 days"
+  ExpiresByType image/svg+xml   "access plus 30 days"
+  ExpiresByType text/html       "access plus 0 seconds"
+  ExpiresByType text/xml        "access plus 1 hour"
+  ExpiresByType text/plain      "access plus 1 hour"
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -90,43 +91,29 @@ ServerSignature Off
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-</IfModule>
-
-# ---------------------------------------------------------------------
-#  AI / LLM индекси — чист текст + кратък кеш
-# ---------------------------------------------------------------------
-<IfModule mod_headers.c>
-  <FilesMatch "^llms(-full)?\.txt$">
-    Header set Content-Type "text/plain; charset=utf-8"
+  <FilesMatch "^(sitemap\.xml|robots\.txt|llms(-full)?\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
 
 # ---------------------------------------------------------------------
-#  Сигурност (заглавия)
+#  Сигурност
 # ---------------------------------------------------------------------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-  # HSTS — включи само след като HTTPS работи навсякъде
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 </IfModule>
 
 # ---------------------------------------------------------------------
-#  Забрани достъп до служебни файлове
+#  Служебни файлове — без достъп
 # ---------------------------------------------------------------------
-<FilesMatch "(^\.|\.(bak|config|dist|inc|ini|log|sh|sql|zip|py)$|^_headers$|^_redirects$)">
+<FilesMatch "(^\.|\.(bak|config|dist|inc|ini|log|sh|sql|zip|py)$|^_redirects$)">
   Require all denied
 </FilesMatch>
 
-# .htaccess се пази автоматично, но за всеки случай:
 <Files ".htaccess">
   Require all denied
 </Files>
-
-# ---------------------------------------------------------------------
-#  Бележка: НЕ добавяме hotlink protection нарочно — тя блокираше
-#  заявки за .webp/.woff2 от ботове без реферер (ClaudeBot, скенери).
-# ---------------------------------------------------------------------
