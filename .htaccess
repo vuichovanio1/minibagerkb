@@ -91,7 +91,7 @@ ServerSignature Off
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.xml|robots\.txt|llms(-full)?\.txt)$">
+  <FilesMatch "^(sitemap\.(xml|txt)|robots\.txt|llms(-full)?\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
