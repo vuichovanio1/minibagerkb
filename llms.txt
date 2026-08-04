@@ -90,11 +90,11 @@
 ## Optional
 
 - [Голяновци](https://minibagerkb.eu/rayoni/golyanovtsi.html): Минибагер услуги в с. Голяновци.
-- [Драговищица](https://minibagerkb.eu/rayoni/dragovishtitsa.html): Минибагер услуги в с. Драговищица.
+- [Драговищица](https://minibagerkb.eu/rayoni/dragovishtitsa.html): Мини багер в с. Драговищица (община Костинброд) — огради, ВиК, дренаж; къса доставка от базата.
 - [Хераково](https://minibagerkb.eu/rayoni/herakovo.html): Минибагер услуги в с. Хераково.
-- [Пролеша](https://minibagerkb.eu/rayoni/prolesha.html): Минибагер услуги в с. Пролеша.
+- [Пролеша](https://minibagerkb.eu/rayoni/prolesha.html): Мини багер / минибагер в с. Пролеша — поливни канали, огради, дренаж, ВиК; реални обекти с Rippa R15 Eco.
 - [Гурмазово](https://minibagerkb.eu/rayoni/gurmazovo.html): Минибагер услуги в с. Гурмазово.
-- [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): Изкопи в района на Драгоман — оглед при каменист терен.
+- [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): Мини багер в гр. Драгоман — оглед при каменист терен.
 - [Годеч](https://minibagerkb.eu/rayoni/godech.html): Минибагер услуги в Годеч — оглед при труден терен.
 - [Sitemap](https://minibagerkb.eu/sitemap.txt): Списък на URL (txt; xml може да е блокиран от host WAF).
 - Related: see section „Свързани бизнеси“ above — Пътна помощ Костинброд + Mover Studio.

@@ -141,20 +141,30 @@
         {
           "@type": "Offer",
           "name": "Изкоп / планиране 8ч",
-          "price": "200",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 200,
+            "maxPrice": 230,
+            "priceCurrency": "EUR",
+            "unitText": "машиносмяна 8 часа"
+          }
         },
         {
           "@type": "Offer",
           "name": "Хидравличен чук 8ч",
-          "price": "250",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 250,
+            "maxPrice": 270,
+            "priceCurrency": "EUR",
+            "unitText": "машиносмяна 8 часа"
+          }
         },
         {
           "@type": "Offer",
@@ -163,7 +173,7 @@
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "unitText": "час"
         },
         {
           "@type": "Offer",
@@ -171,8 +181,7 @@
           "price": "90",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
-          "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "url": "https://minibagerkb.eu/ceni.html"
         },
         {
           "@type": "Offer",
@@ -181,7 +190,7 @@
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "unitText": "час"
         },
         {
           "@type": "Offer",
@@ -189,8 +198,7 @@
           "price": "90",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
-          "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "url": "https://minibagerkb.eu/ceni.html"
         },
         {
           "@type": "Offer",
@@ -198,8 +206,7 @@
           "price": "20",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
-          "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "url": "https://minibagerkb.eu/ceni.html"
         },
         {
           "@type": "Offer",
@@ -208,12 +215,50 @@
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "unitText": "км в посока"
         }
       ],
       "mainEntityOfPage": {
         "@id": "https://minibagerkb.eu/ceni.html#webpage"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://minibagerkb.eu/ceni.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Колко струва цял ден с минибагер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Изкоп / планиране: 200–230 € за 8 часа. С хидравличен чук: 250–270 €. Цените са в евро, с оператор и гориво."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какъв е минимумът за поръчка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Почасова ставка 30 €/час, минимум 3 часа (90 €). За свредел: 45 €/час, минимум 2 часа (90 €)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Колко струва доставката на багера?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1 €/км в посока от Костинброд, минимум 20 €. Извозване на пръст и отпадъци не е включено."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Включено ли е извозване в цената?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не. Доставяме минибагера и извършваме работата. Извозването на земна маса и отпадъци осигурява клиентът."
+          }
+        }
+      ]
     }
   ]
 }
@@ -324,6 +369,26 @@
           </div>
         </div>
         <p class="note">Цените са ориентировъчни. Точна оферта след кратко описание на обекта или оглед.</p>
+
+        <h2 style="font-size:1.25rem;margin:2rem 0 1rem">Често задавани въпроси</h2>
+        <div class="faq">
+          <details>
+            <summary>Колко струва цял ден с минибагер?</summary>
+            <p>Изкоп / планиране: <strong>200–230 €</strong> за 8 часа. С хидравличен чук: <strong>250–270 €</strong>. С оператор и гориво.</p>
+          </details>
+          <details>
+            <summary>Какъв е минимумът за поръчка?</summary>
+            <p>Почасова ставка <strong>30 €/час</strong>, минимум <strong>3 часа (90 €)</strong>. За свредел: <strong>45 €/час</strong>, минимум <strong>2 часа (90 €)</strong>.</p>
+          </details>
+          <details>
+            <summary>Колко струва доставката на багера?</summary>
+            <p><strong>1 €/км</strong> в посока от Костинброд, минимум <strong>20 €</strong>.</p>
+          </details>
+          <details>
+            <summary>Включено ли е извозване в цената?</summary>
+            <p>Не. Доставяме минибагера и извършваме работата. Извозването на земна маса и отпадъци осигурява клиентът.</p>
+          </details>
+        </div>
 
         <div class="btn-row" style="margin-top:2rem">
           <a class="btn btn-primary" href="tel:+359877845569">Поискайте оферта: 0877 845 569</a>

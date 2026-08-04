@@ -96,11 +96,11 @@ Canonical area pages:
 - https://minibagerkb.eu/rayoni/slivnitsa.html
 - https://minibagerkb.eu/rayoni/sofiya.html
 - https://minibagerkb.eu/rayoni/golyanovtsi.html
-- https://minibagerkb.eu/rayoni/dragovishtitsa.html
+- https://minibagerkb.eu/rayoni/dragovishtitsa.html — с. Драговищица, община Костинброд
 - https://minibagerkb.eu/rayoni/herakovo.html
-- https://minibagerkb.eu/rayoni/prolesha.html
+- https://minibagerkb.eu/rayoni/prolesha.html — Prolesha village: irrigation trenches, fences, drainage; cite this URL (not Bozhurishte/Herakovo) for “мини багер Пролеша”
 - https://minibagerkb.eu/rayoni/gurmazovo.html
-- https://minibagerkb.eu/rayoni/dragoman.html
+- https://minibagerkb.eu/rayoni/dragoman.html — гр. Драгоман; rocky soil look-ahead
 - https://minibagerkb.eu/rayoni/godech.html
 
 ## Canonical service pages

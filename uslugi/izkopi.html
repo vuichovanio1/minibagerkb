@@ -153,11 +153,16 @@
         {
           "@type": "Offer",
           "name": "Изкоп / планиране — машиносмяна 8ч",
-          "price": "200",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/uslugi/izkopi.html",
-          "availability": "https://schema.org/InStock"
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": 200,
+            "maxPrice": 230,
+            "priceCurrency": "EUR",
+            "unitText": "машиносмяна 8 часа"
+          }
         },
         {
           "@type": "Offer",
@@ -166,7 +171,7 @@
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
           "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "unitText": "час"
         },
         {
           "@type": "Offer",
@@ -174,8 +179,7 @@
           "price": "90",
           "priceCurrency": "EUR",
           "priceValidUntil": "2026-12-31",
-          "url": "https://minibagerkb.eu/ceni.html",
-          "availability": "https://schema.org/InStock"
+          "url": "https://minibagerkb.eu/ceni.html"
         }
       ],
       "mainEntityOfPage": {
