@@ -397,7 +397,7 @@ li { margin-bottom: 0.35em; }
   .inv-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 960px) {
-  .inv-grid { grid-template-columns: repeat(4, 1fr); }
+  .inv-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .inv-card {
   margin: 0;
@@ -677,6 +677,38 @@ li { margin-bottom: 0.35em; }
   color: var(--chalk-dim);
 }
 .note strong { color: var(--chalk); }
+
+.guide-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+.guide-table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.guide-table th,
+.guide-table td {
+  text-align: left;
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--steel) 22%, transparent);
+  vertical-align: top;
+}
+.guide-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--steel);
+  font-weight: 800;
+}
+.guide-table td:first-child {
+  color: var(--chalk);
+  font-weight: 800;
+  white-space: nowrap;
+}
+.guide-table td { color: var(--chalk-dim); }
 
 /* Regions */
 .region-cloud {
