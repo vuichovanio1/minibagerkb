@@ -35,6 +35,9 @@ ServerSignature Off
   # http → https
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Сурови телефонни JPG — не се сервират
+  RewriteRule ^assets/img/%D0%BD%D0%BE%D0%B2%D0%B8/ - [F,L]
 </IfModule>
 
 # ---------------------------------------------------------------------

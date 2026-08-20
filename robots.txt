@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /assets/img/нови/
 
 # Explicitly welcome major AI / search crawlers
 User-agent: GPTBot
