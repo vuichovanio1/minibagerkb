@@ -62,14 +62,14 @@
 
 ## Райони с приоритет
 
-- [Костинброд](https://minibagerkb.eu/rayoni/kostinbrod.html): База и най-близки обекти — бърз старт.
+- [Костинброд](https://minibagerkb.eu/rayoni/kostinbrod.html): база и най-близки обекти — бърз старт.
 - [Божурище](https://minibagerkb.eu/rayoni/bozhurishte.html): Частни дворове и огради в община Божурище.
-- [Банкя](https://minibagerkb.eu/rayoni/bankya.html): Вили и тесни дворове — гумени вериги за готови настилки.
+- [Банкя](https://minibagerkb.eu/rayoni/bankya.html): вили и готови дворове — гумени вериги за паваж и морава.
 - [Петърч](https://minibagerkb.eu/rayoni/petarch.html): Близко село в община Костинброд.
 - [Волуяк](https://minibagerkb.eu/rayoni/voluyak.html): Бърза доставка от Костинброд.
 - [Мрамор](https://minibagerkb.eu/rayoni/mramor.html): Частни парцели и огради близо до базата.
-- [Сливница](https://minibagerkb.eu/rayoni/slivnitsa.html): Изкопи и огради в близък радиус.
-- [София](https://minibagerkb.eu/rayoni/sofiya.html): Тесни дворове и вилни зони — доставка по км от Костинброд.
+- [Сливница](https://minibagerkb.eu/rayoni/slivnitsa.html): гр. Сливница (София-област) — огради, ВиК, дренаж; къса доставка от Костинброд по посока Драгоман.
+- [София](https://minibagerkb.eu/rayoni/sofiya.html): западни квартали и вилни зони — тесни дворове; доставка по км от Костинброд.
 
 ## Машина и ограничения
 
@@ -82,6 +82,7 @@
 
 - [Обаждане](tel:+359877845569): 0877 845 569 — оглед и оферта.
 - [Viber](viber://chat?number=%2B359877845569): Пратете снимка на обекта и населеното място — ориентир същия ден. Същият номер 0877 845 569.
+- [Facebook](https://www.facebook.com/profile.php?id=61592394322863): Страницата на Минибагер Костинброд — снимки от обекти.
 - Преди визитата: порта ~1 м, място за пръстта (не извозваме), маркирани кабели/тръби. [Какво да подготвите](https://minibagerkb.eu/#podgotovka).
 - Фирма: Транспортер Иван Иванов ЕООД.
 - Адрес: ул. Бяло море 16, Костинброд, България.
@@ -95,7 +96,7 @@
 - [Хераково](https://minibagerkb.eu/rayoni/herakovo.html): Минибагер услуги в с. Хераково.
 - [Пролеша](https://minibagerkb.eu/rayoni/prolesha.html): Мини багер / минибагер в с. Пролеша — поливни канали, огради, дренаж, ВиК; реални обекти с Rippa R15 Eco.
 - [Гурмазово](https://minibagerkb.eu/rayoni/gurmazovo.html): Минибагер услуги в с. Гурмазово.
-- [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): Мини багер в гр. Драгоман — оглед при каменист терен.
-- [Годеч](https://minibagerkb.eu/rayoni/godech.html): Минибагер услуги в Годеч — оглед при труден терен.
+- [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): каменист терен — оглед преди свредел/дълбок канал.
+- [Годеч](https://minibagerkb.eu/rayoni/godech.html): огради и дворове; оглед при каменист терен.
 - [Sitemap](https://minibagerkb.eu/sitemap.txt): Списък на URL (txt; xml може да е блокиран от host WAF).
 - Related: see section „Свързани бизнеси“ above — Пътна помощ Костинброд + Mover Studio.

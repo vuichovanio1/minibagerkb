@@ -275,6 +275,14 @@ li { margin-bottom: 0.35em; }
   background: #8574f5;
   color: #fff !important;
 }
+.btn-facebook {
+  background: #1877f2;
+  color: #fff !important;
+}
+.btn-facebook:hover {
+  background: #3b8aff;
+  color: #fff !important;
+}
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .viber-hint {
   margin: 0.7rem 0 0;
@@ -1080,39 +1088,33 @@ li { margin-bottom: 0.35em; }
   html { scroll-behavior: auto; }
 }
 
-/* Floating call — mobile only, stays clear of footer text */
+/* Floating contact — mobile only, icon row */
 .float-contact {
   position: fixed;
-  right: max(0.85rem, env(safe-area-inset-right));
-  bottom: max(0.85rem, env(safe-area-inset-bottom));
+  right: max(0.65rem, env(safe-area-inset-right));
+  bottom: max(0.65rem, env(safe-area-inset-bottom));
   z-index: 60;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.45rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
 }
 .float-call,
-.float-viber {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 0.7rem 1rem 0.7rem 0.85rem;
-  border-radius: 999px;
+.float-viber,
+.float-facebook {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  padding: 0;
+  border-radius: 50%;
   text-decoration: none !important;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.38);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
 }
 .float-call {
   background: var(--beacon);
   color: var(--asphalt) !important;
-  box-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.35),
-    0 0 0 1px color-mix(in srgb, var(--beacon-hot) 40%, transparent);
 }
 .float-call:hover,
 .float-call:focus-visible {
@@ -1130,29 +1132,35 @@ li { margin-bottom: 0.35em; }
   color: #fff !important;
   transform: translateY(-2px);
 }
-.float-call-ico {
-  display: grid;
-  place-items: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  flex-shrink: 0;
+.float-facebook {
+  background: #1877f2;
+  color: #fff !important;
 }
-.float-call-ico svg {
+.float-facebook:hover,
+.float-facebook:focus-visible {
+  background: #3b8aff;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.float-contact svg {
+  display: block;
   width: 1.15rem;
   height: 1.15rem;
   fill: currentColor;
 }
-.float-call-txt { line-height: 1; }
+.float-facebook svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
 @media (min-width: 900px) {
   .float-contact { display: none; }
 }
-/* Keep footer lines readable under / beside the FAB */
 @media (max-width: 899px) {
   .site-footer {
-    padding-bottom: 7.5rem;
+    padding-bottom: 5rem;
   }
   .footer-copy {
-    padding-right: 7.5rem;
+    padding-right: 9.5rem;
     row-gap: 0.55rem;
   }
 }
