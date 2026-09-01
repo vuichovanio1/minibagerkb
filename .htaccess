@@ -38,9 +38,6 @@ ServerSignature Off
 
   # Сурови телефонни JPG — не се сервират
   RewriteRule ^assets/img/%D0%BD%D0%BE%D0%B2%D0%B8/ - [F,L]
-
-  # Sitemap: статичен .xml не се взима от Googlebot на BinHost → PHP обход
-  RewriteRule ^sitemap\.xml$ sitemap.php [L]
 </IfModule>
 
 # ---------------------------------------------------------------------
@@ -97,7 +94,7 @@ ServerSignature Off
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.(xml|txt|php)|robots\.txt|llms(-full)?\.txt)$">
+  <FilesMatch "^(sitemap\.(xml|txt)|robots\.txt|llms(-full)?\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
