@@ -100,5 +100,5 @@
 - [Гурмазово](https://minibagerkb.eu/rayoni/gurmazovo.html): Минибагер услуги в с. Гурмазово.
 - [Драгоман](https://minibagerkb.eu/rayoni/dragoman.html): каменист терен — оглед преди свредел/дълбок канал.
 - [Годеч](https://minibagerkb.eu/rayoni/godech.html): огради и дворове; оглед при каменист терен.
-- [Sitemap](https://minibagerkb.eu/sitemap.txt): Списък на URL (txt; xml може да е блокиран от host WAF).
+- [Sitemap](https://minibagerkb.eu/sitemap.php): XML sitemap с lastmod (PHP; статичен .xml на BinHost не се взима от Googlebot). Резервен txt: https://minibagerkb.eu/sitemap.txt
 - Related: see section „Свързани бизнеси“ above — Пътна помощ Костинброд + Mover Studio.

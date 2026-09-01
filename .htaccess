@@ -38,12 +38,15 @@ ServerSignature Off
 
   # Сурови телефонни JPG — не се сервират
   RewriteRule ^assets/img/%D0%BD%D0%BE%D0%B2%D0%B8/ - [F,L]
+
+  # Sitemap: статичен .xml не се взима от Googlebot на BinHost → PHP обход
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
 </IfModule>
 
 # ---------------------------------------------------------------------
 #  MIME типове
-#  Важно: sitemap ползва text/xml (стандартът на sitemaps.org).
-#  Не пипаме Content-Type с Header set — конфликт с AddCharset чупи GSC.
+#  Sitemap: application/xml (GSC понякога отхвърля text/xml на LiteSpeed/cPanel).
+#  Не пипаме Content-Type с Header set — конфликт с AddCharset чупи HTML за GSC.
 # ---------------------------------------------------------------------
 <IfModule mod_mime.c>
   AddType image/webp                .webp
@@ -51,7 +54,7 @@ ServerSignature Off
   AddType font/woff2                .woff2
   AddType application/manifest+json .webmanifest
   AddType image/x-icon              .ico
-  AddType text/xml                  .xml
+  AddType application/xml           .xml
   AddType text/plain                .txt
 
   AddCharset UTF-8 .html .css .js .txt .json .webmanifest .svg
@@ -80,7 +83,7 @@ ServerSignature Off
   ExpiresByType image/x-icon    "access plus 30 days"
   ExpiresByType image/svg+xml   "access plus 30 days"
   ExpiresByType text/html       "access plus 0 seconds"
-  ExpiresByType text/xml        "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
   ExpiresByType text/plain      "access plus 1 hour"
 </IfModule>
 
@@ -94,7 +97,7 @@ ServerSignature Off
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.(xml|txt)|robots\.txt|llms(-full)?\.txt)$">
+  <FilesMatch "^(sitemap\.(xml|txt|php)|robots\.txt|llms(-full)?\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>

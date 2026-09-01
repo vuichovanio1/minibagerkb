@@ -24,8 +24,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://minibagerkb.eu/sitemap.txt
-Sitemap: https://minibagerkb.eu/sitemap.xml
+Sitemap: https://minibagerkb.eu/sitemap.php
 
 # AI / LLM context indexes
 # https://minibagerkb.eu/llms.txt
