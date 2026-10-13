@@ -38,6 +38,41 @@ ServerSignature Off
 
   # Сурови телефонни JPG — не се сервират
   RewriteRule ^assets/img/%D0%BD%D0%BE%D0%B2%D0%B8/ - [F,L]
+
+  # Точка в края на URL (бот/грешка) → без точка
+  RewriteCond %{REQUEST_URI} ^(.+)\.$
+  RewriteRule ^ %1 [L,R=301]
+
+  # Стари/плоски URL → канонични пътища (логове 5–12 окт. 2026)
+  RewriteRule ^bozhurishte\.html$           /rayoni/bozhurishte.html [L,R=301]
+  RewriteRule ^bankya\.html$                /rayoni/bankya.html [L,R=301]
+  RewriteRule ^dragoman\.html$              /rayoni/dragoman.html [L,R=301]
+  RewriteRule ^dragovishtitsa\.html$        /rayoni/dragovishtitsa.html [L,R=301]
+  RewriteRule ^godech\.html$                /rayoni/godech.html [L,R=301]
+  RewriteRule ^golyanovtsi\.html$           /rayoni/golyanovtsi.html [L,R=301]
+  RewriteRule ^gurmazovo\.html$             /rayoni/gurmazovo.html [L,R=301]
+  RewriteRule ^herakovo\.html$              /rayoni/herakovo.html [L,R=301]
+  RewriteRule ^kostinbrod\.html$            /rayoni/kostinbrod.html [L,R=301]
+  RewriteRule ^mramor\.html$                /rayoni/mramor.html [L,R=301]
+  RewriteRule ^petarch\.html$               /rayoni/petarch.html [L,R=301]
+  RewriteRule ^prolesha\.html$              /rayoni/prolesha.html [L,R=301]
+  RewriteRule ^slivnitsa\.html$             /rayoni/slivnitsa.html [L,R=301]
+  RewriteRule ^sofiya\.html$                /rayoni/sofiya.html [L,R=301]
+  RewriteRule ^voluyak\.html$               /rayoni/voluyak.html [L,R=301]
+
+  RewriteRule ^drenazh-vik\.html$           /uslugi/drenazh-vik.html [L,R=301]
+  RewriteRule ^hidravlichen-chuk\.html$     /uslugi/hidravlichen-chuk.html [L,R=301]
+  RewriteRule ^izkopi\.html$                /uslugi/izkopi.html [L,R=301]
+  RewriteRule ^ograda\.html$                /uslugi/ograda.html [L,R=301]
+  RewriteRule ^palets\.html$                /uslugi/palets.html [L,R=301]
+  RewriteRule ^podravnyavane\.html$         /uslugi/podravnyavane.html [L,R=301]
+  RewriteRule ^svredel\.html$               /uslugi/svredel.html [L,R=301]
+
+  RewriteRule ^izbor-na-kofa-za-izkop\.html$ /blog/izbor-na-kofa-za-izkop.html [L,R=301]
+  RewriteRule ^minibager-vs-rachen-trud\.html$ /blog/minibager-vs-rachen-trud.html [L,R=301]
+
+  # Ahrefs и др. търсят WordPress-style sitemap index
+  RewriteRule ^sitemap_index\.xml$          /sitemap.xml [L,R=301]
 </IfModule>
 
 # ---------------------------------------------------------------------
@@ -94,7 +129,7 @@ ServerSignature Off
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
-  <FilesMatch "^(sitemap\.(xml|txt)|robots\.txt|llms(-full)?\.txt)$">
+  <FilesMatch "^(sitemap\.(xml|txt)|robots\.txt|llms(-full)?\.txt|ai\.txt)$">
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 </IfModule>
@@ -112,6 +147,7 @@ ServerSignature Off
 
 # ---------------------------------------------------------------------
 #  Служебни файлове — без достъп
+#  (.well-known/traffic-advice остава достъпен — името не започва с точка)
 # ---------------------------------------------------------------------
 <FilesMatch "(^\.|\.(bak|config|dist|inc|ini|log|sh|sql|zip|py)$|^_redirects$)">
   Require all denied

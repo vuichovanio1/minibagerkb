@@ -29,3 +29,4 @@ Sitemap: https://minibagerkb.eu/sitemap.txt
 # AI / LLM context indexes
 # https://minibagerkb.eu/llms.txt
 # https://minibagerkb.eu/llms-full.txt
+# https://minibagerkb.eu/ai.txt
