@@ -6,3 +6,6 @@ node_modules/
 .vscode/
 .idea/
 assets/img/нови/
+Photos-*/
+багер*.zip
+_convert_*.py
